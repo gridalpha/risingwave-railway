@@ -33,3 +33,10 @@ variable, so it is derived from `DASHBOARD_PASSWORD` at boot.
 | `DASHBOARD_UPSTREAM` | `gateway/` | Defaults to `meta.railway.internal:5691` |
 
 Every other setting is a stock `RW_*` variable read by the upstream binaries.
+
+## `prometheus/` — metrics for the meta dashboard
+
+`prom/prometheus` with a scrape config covering all four RisingWave roles. The
+meta dashboard's metrics panels answer `500 Prometheus endpoint is not set`
+without it, so `RW_PROMETHEUS_ENDPOINT` on the meta and frontend nodes points
+here. Private only — nothing outside the project reaches it.
